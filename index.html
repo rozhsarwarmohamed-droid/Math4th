@@ -1,0 +1,1574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Unit 13.1 – Mass | Grade 3 Maths</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pink:#FF6B9D;--pink2:#e8568a;--pink-lt:#FFB3D1;--pink-pale:#FFF0F7;
+  --cream:#FFF8F0;--choc:#5C3317;--choc-lt:#8B5E3C;
+  --mint:#A8E6CF;--mint-dk:#00B894;
+  --yellow:#FFD93D;--orange:#FF9F43;
+  --purple:#C3A4FF;--purple-dk:#8854d0;
+  --blue:#74B9FF;--blue-dk:#0984e3;
+  --red:#FF6B6B;--green:#55EFC4;--green-dk:#00B894;
+  --sw:220px;--r:18px;--sh:0 4px 20px rgba(255,107,157,.15);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{height:100%;font-size:16px}
+body{
+  display:flex;height:100%;
+  font-family:'Nunito',sans-serif;
+  background:var(--cream);color:var(--choc);
+  touch-action:manipulation;overflow:hidden;
+}
+
+/* ─── SIDEBAR ─── */
+#sidebar{
+  width:var(--sw);min-width:var(--sw);
+  background:linear-gradient(170deg,#FF6B9D 0%,#c0396f 100%);
+  display:flex;flex-direction:column;
+  overflow-y:auto;overflow-x:hidden;
+  overscroll-behavior:contain;
+  padding-bottom:20px;
+}
+.sb-head{
+  padding:22px 14px 16px;text-align:center;
+  border-bottom:2px dashed rgba(255,255,255,.3);
+  flex-shrink:0;
+}
+.sb-icon{font-size:42px;display:block;margin-bottom:6px;
+  filter:drop-shadow(0 2px 5px rgba(0,0,0,.25));}
+.sb-unit{font-family:'Fredoka One',cursive;color:rgba(255,255,255,.8);
+  font-size:11px;letter-spacing:2px;text-transform:uppercase;}
+.sb-title{font-family:'Fredoka One',cursive;color:#fff;font-size:22px;line-height:1.2;margin-top:4px;}
+
+.nav-list{list-style:none;padding:10px 8px;flex:1;}
+.nav-item{margin-bottom:5px;}
+.nav-btn{
+  width:100%;display:flex;align-items:center;gap:9px;
+  padding:11px 12px;border:none;border-radius:13px;
+  background:rgba(255,255,255,.13);color:#fff;
+  font-family:'Nunito',sans-serif;font-size:12.5px;font-weight:700;
+  cursor:pointer;text-align:left;transition:all .2s;
+  touch-action:manipulation;
+}
+.nav-btn:active{transform:scale(.97);}
+.nav-btn.active{background:#fff;color:var(--pink);box-shadow:0 4px 14px rgba(0,0,0,.15);}
+.nav-icon{font-size:19px;flex-shrink:0;}
+.nav-label{flex:1;line-height:1.2;}
+.pdot{
+  width:10px;height:10px;border-radius:50%;
+  background:rgba(255,255,255,.28);flex-shrink:0;transition:all .35s;
+}
+.pdot.done{background:#55EFC4;box-shadow:0 0 7px #55EFC4;}
+
+/* ─── MAIN ─── */
+#main{
+  flex:1;min-height:0;
+  overflow-y:scroll;
+  overscroll-behavior-y:contain;
+  scroll-behavior:smooth;
+  padding:28px 26px 130px;
+  background:var(--cream);
+}
+
+/* ─── SECTIONS ─── */
+.sec{display:none;}
+.sec.active{display:block;animation:fadeUp .35s ease;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+
+/* ─── TYPOGRAPHY ─── */
+.sec-title{
+  font-family:'Fredoka One',cursive;font-size:32px;
+  color:var(--pink);margin-bottom:4px;
+}
+.sec-sub{font-size:13.5px;color:var(--choc-lt);font-weight:700;margin-bottom:20px;}
+h3{font-family:'Fredoka One',cursive;font-size:20px;color:var(--choc);margin-bottom:10px;}
+h4{font-family:'Fredoka One',cursive;font-size:16px;color:var(--choc-lt);margin-bottom:8px;}
+p{font-size:15px;line-height:1.65;color:var(--choc);}
+.big{font-size:17px;font-weight:700;}
+.hl{color:var(--pink);font-weight:800;}
+.hl-green{color:var(--mint-dk);font-weight:800;}
+.hl-orange{color:var(--orange);font-weight:800;}
+
+/* ─── CARDS ─── */
+.card{
+  background:#fff;border-radius:var(--r);
+  padding:22px;margin-bottom:18px;
+  box-shadow:var(--sh);border:2px solid transparent;
+}
+.card-pink{border-color:var(--pink-lt);background:var(--pink-pale);}
+.card-mint{border-color:var(--mint);background:#F0FFF8;}
+.card-yellow{border-color:#FFE082;background:#FFFDE7;}
+.card-choc{border-color:#BCAAA4;background:#FBF5F0;}
+.card-purple{border-color:var(--purple);background:#FAF5FF;}
+.card-orange{border-color:#FFD5A8;background:#FFF8F0;}
+
+/* ─── OBJECTIVE TAGS ─── */
+.obj-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+.obj-tag{
+  border-radius:20px;padding:6px 14px;
+  font-size:13px;font-weight:700;color:#fff;
+}
+.ot-pink{background:var(--pink);}
+.ot-mint{background:var(--mint-dk);}
+.ot-orange{background:var(--orange);}
+.ot-purple{background:var(--purple-dk);}
+
+/* ─── WELCOME HERO ─── */
+.hero-band{
+  background:linear-gradient(135deg,#FF6B9D,#C94080);
+  border-radius:var(--r);padding:28px 24px;
+  color:#fff;margin-bottom:18px;
+  display:flex;align-items:center;gap:20px;flex-wrap:wrap;
+}
+.hero-text h2{font-family:'Fredoka One',cursive;font-size:28px;line-height:1.2;}
+.hero-text p{font-size:14px;opacity:.9;margin-top:6px;}
+.hero-emoji{font-size:64px;filter:drop-shadow(0 4px 8px rgba(0,0,0,.25));flex-shrink:0;}
+
+/* ─── MASS INTRO GRID ─── */
+.mass-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0;}
+.mass-card{
+  background:#fff;border-radius:15px;padding:16px 12px;
+  text-align:center;box-shadow:0 3px 12px rgba(0,0,0,.07);
+  border:2px solid var(--pink-lt);
+}
+.mass-card .mc-em{font-size:42px;display:block;margin-bottom:6px;}
+.mass-card .mc-name{font-family:'Fredoka One',cursive;font-size:14px;color:var(--choc);}
+.mass-card .mc-mass{font-size:18px;font-weight:800;color:var(--pink);margin-top:3px;}
+
+/* ─── INSTRUMENTS ─── */
+.inst-row{display:flex;gap:12px;flex-wrap:wrap;margin:14px 0;}
+.inst-card{
+  flex:1;min-width:110px;background:#fff;
+  border-radius:14px;padding:14px;text-align:center;
+  box-shadow:0 2px 10px rgba(0,0,0,.07);
+  border:2px solid var(--mint);
+}
+.inst-card .ie{font-size:38px;display:block;margin-bottom:6px;}
+.inst-card .in{font-family:'Fredoka One',cursive;font-size:13px;}
+
+/* ─── STEP BOXES ─── */
+.step{
+  display:flex;align-items:flex-start;gap:12px;
+  background:#fff;border-radius:14px;padding:14px;
+  margin-bottom:11px;border-left:5px solid var(--pink);
+  box-shadow:0 2px 8px rgba(0,0,0,.06);
+}
+.step-n{
+  background:var(--pink);color:#fff;width:30px;height:30px;
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-family:'Fredoka One',cursive;font-size:16px;flex-shrink:0;
+}
+.step-body{flex:1;}
+
+/* ─── EQUATION BOX ─── */
+.eq-box{
+  background:linear-gradient(135deg,var(--pink-pale),#fff);
+  border:2px dashed var(--pink);border-radius:16px;
+  padding:16px;margin:14px 0;text-align:center;
+  font-family:'Fredoka One',cursive;font-size:19px;color:var(--choc);
+}
+.eq-line{margin:5px 0;}
+.eq-pink{color:var(--pink);}
+.eq-green{color:var(--mint-dk);}
+.eq-orange{color:var(--orange);}
+
+/* ─── INPUTS ─── */
+input[type="number"],input[type="text"]{
+  border:3px solid var(--pink-lt);border-radius:12px;
+  padding:10px 12px;font-family:'Nunito',sans-serif;
+  font-size:20px;font-weight:700;color:var(--choc);
+  width:110px;text-align:center;outline:none;
+  transition:border-color .2s;touch-action:manipulation;
+}
+input:focus{border-color:var(--pink);}
+input.correct{border-color:var(--mint-dk);background:#F0FFF8;}
+input.incorrect{border-color:var(--red);background:#FFF0F0;}
+
+/* ─── BUTTONS ─── */
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:13px 22px;border:none;border-radius:14px;
+  font-family:'Fredoka One',cursive;font-size:17px;
+  cursor:pointer;transition:all .18s;touch-action:manipulation;
+  user-select:none;
+}
+.btn:active{transform:scale(.96);}
+.btn-pink{background:var(--pink);color:#fff;box-shadow:0 4px 12px rgba(255,107,157,.35);}
+.btn-pink:hover{background:var(--pink2);}
+.btn-mint{background:var(--mint-dk);color:#fff;box-shadow:0 4px 12px rgba(0,184,148,.3);}
+.btn-yellow{background:var(--yellow);color:var(--choc);box-shadow:0 4px 12px rgba(255,217,61,.3);}
+.btn-orange{background:var(--orange);color:#fff;box-shadow:0 4px 12px rgba(255,159,67,.3);}
+.btn-grey{background:#EBEBEB;color:#666;}
+.btn-sm{font-size:14px;padding:9px 16px;}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;align-items:center;}
+
+/* ─── ANSWER REVEAL ─── */
+.reveal{
+  display:none;background:linear-gradient(135deg,#F0FFF8,#E8F8F5);
+  border:2px solid var(--mint-dk);border-radius:14px;
+  padding:16px 20px;margin-top:14px;
+}
+.reveal.show{display:block;}
+.reveal h4{font-family:'Fredoka One',cursive;color:var(--mint-dk);font-size:18px;margin-bottom:8px;}
+
+/* ─── BALANCE SCALE ─── */
+.scale-wrap{display:flex;justify-content:center;margin:18px 0;}
+#scale-svg text{font-family:'Fredoka One',cursive;}
+
+/* ─── ESTIMATE BOX ─── */
+.est-box{
+  display:flex;align-items:center;gap:12px;
+  background:#FFFDE7;border:2px dashed var(--yellow);
+  border-radius:14px;padding:13px 16px;margin:14px 0;flex-wrap:wrap;
+}
+.est-box label{font-weight:700;font-size:15px;}
+.est-hint{font-size:12px;color:var(--choc-lt);}
+
+/* ─── COMPARE ─── */
+.cmp-grid{
+  display:grid;grid-template-columns:1fr 60px 1fr;
+  gap:12px;align-items:center;margin:14px 0;
+}
+.cmp-item{
+  background:#fff;border-radius:14px;padding:15px;
+  text-align:center;box-shadow:0 2px 10px rgba(0,0,0,.07);
+  border:3px solid transparent;transition:border-color .2s;
+}
+.cmp-item .ci-em{font-size:38px;display:block;}
+.cmp-item .ci-name{font-size:12px;font-weight:700;color:var(--choc-lt);margin-top:3px;}
+.cmp-item .ci-mass{font-family:'Fredoka One',cursive;font-size:22px;color:var(--pink);}
+.cmp-ops{display:flex;flex-direction:column;gap:8px;align-items:center;}
+.op-btn{
+  width:50px;height:50px;border-radius:50%;
+  border:3px solid var(--pink-lt);background:#fff;
+  font-family:'Fredoka One',cursive;font-size:22px;
+  color:var(--choc);cursor:pointer;transition:all .18s;
+  display:flex;align-items:center;justify-content:center;
+  touch-action:manipulation;
+}
+.op-btn:hover{background:var(--pink-pale);border-color:var(--pink);}
+.op-btn.sel{background:var(--pink);color:#fff;border-color:var(--pink);}
+.op-btn.op-ok{background:var(--mint-dk);color:#fff;border-color:var(--mint-dk);}
+.op-btn.op-no{background:var(--red);color:#fff;border-color:var(--red);}
+.cmp-feedback{
+  min-height:32px;text-align:center;font-family:'Fredoka One',cursive;
+  font-size:17px;color:var(--choc-lt);margin:4px 0;
+}
+
+/* ─── KG / G ─── */
+.unit-cards{display:flex;gap:12px;flex-wrap:wrap;margin:14px 0;}
+.unit-card{
+  flex:1;min-width:130px;background:#fff;border-radius:14px;
+  padding:16px;text-align:center;border:3px solid var(--orange);
+  box-shadow:0 2px 8px rgba(255,159,67,.15);
+}
+.unit-card .uv{font-family:'Fredoka One',cursive;font-size:30px;color:var(--orange);}
+.unit-card .ul{font-size:13px;font-weight:700;color:var(--choc-lt);margin-top:3px;}
+
+.conv-box{
+  background:linear-gradient(135deg,#FFF8F0,#FFE8D0);
+  border:3px solid var(--orange);border-radius:18px;
+  padding:22px;text-align:center;margin:14px 0;
+}
+.conv-val{font-family:'Fredoka One',cursive;font-size:32px;color:var(--orange);margin-top:10px;}
+input[type=range]{width:100%;accent-color:var(--orange);height:8px;margin:14px 0;cursor:pointer;}
+
+/* ─── FRACTION MASS ─── */
+.frac-row{display:flex;gap:12px;flex-wrap:wrap;margin:14px 0;}
+.frac-card{
+  flex:1;min-width:120px;background:#fff;border-radius:15px;
+  padding:16px 14px;text-align:center;
+  box-shadow:0 3px 12px rgba(0,0,0,.07);
+  border:2px solid var(--purple);
+}
+.frac-big{font-family:'Fredoka One',cursive;font-size:26px;color:var(--purple-dk);}
+.frac-of{font-size:12px;font-weight:700;color:var(--choc-lt);}
+.frac-ans{font-family:'Fredoka One',cursive;font-size:20px;color:var(--choc);margin-top:5px;}
+
+/* ─── QUIZ ─── */
+.quiz-q{
+  background:#fff;border-radius:16px;padding:18px;
+  margin-bottom:14px;box-shadow:var(--sh);
+  border:2px solid var(--pink-lt);
+}
+.q-num{
+  font-family:'Fredoka One',cursive;font-size:12px;
+  color:var(--pink-lt);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;
+}
+.q-text{font-size:15px;font-weight:700;margin-bottom:13px;color:var(--choc);}
+.q-opts{display:grid;grid-template-columns:1fr 1fr;gap:9px;}
+.q-opt{
+  padding:13px;border:3px solid var(--pink-lt);border-radius:13px;
+  background:#fff;font-family:'Nunito',sans-serif;font-size:15px;
+  font-weight:700;color:var(--choc);cursor:pointer;text-align:center;
+  transition:all .18s;touch-action:manipulation;
+}
+.q-opt:hover:not(.answered){background:var(--pink-pale);border-color:var(--pink);}
+.q-opt.qcorrect{background:#E8FFF4;border-color:var(--mint-dk);color:var(--mint-dk);}
+.q-opt.qwrong{background:#FFE8E8;border-color:var(--red);color:var(--red);}
+.q-result{font-size:13px;font-weight:700;margin-top:10px;min-height:18px;}
+
+.score-box{
+  background:linear-gradient(135deg,var(--pink),#C94080);
+  border-radius:20px;padding:30px;text-align:center;
+  color:#fff;display:none;margin-top:18px;
+}
+.score-box.show{display:block;animation:fadeUp .4s ease;}
+.score-big{font-family:'Fredoka One',cursive;font-size:64px;line-height:1;}
+.score-lbl{font-size:18px;opacity:.9;margin-top:6px;}
+.score-stars{font-size:34px;margin:10px 0;}
+
+/* ─── TOAST ─── */
+#tc{
+  position:fixed;bottom:28px;right:22px;z-index:1000;
+  display:flex;flex-direction:column;gap:7px;pointer-events:none;
+}
+.toast{
+  color:#fff;padding:11px 18px;border-radius:13px;
+  font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;
+  box-shadow:0 4px 20px rgba(0,0,0,.2);max-width:250px;
+  animation:tin .3s ease,tout .4s ease 2.3s forwards;
+}
+.toast.tok{background:var(--mint-dk);}
+.toast.terr{background:var(--red);}
+.toast.tinfo{background:var(--choc);}
+@keyframes tin{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes tout{from{opacity:1;transform:translateY(0)}to{opacity:0;transform:translateY(16px)}}
+
+/* ─── SHAKE ─── */
+@keyframes shake{
+  0%,100%{transform:translateX(0)}
+  20%{transform:translateX(-8px)}40%{transform:translateX(8px)}
+  60%{transform:translateX(-6px)}80%{transform:translateX(6px)}
+}
+.shake{animation:shake .4s ease;}
+
+/* ─── PROGRESS BAR ─── */
+.prog-bar-wrap{background:#eee;border-radius:10px;height:10px;margin:12px 0 0;overflow:hidden;}
+.prog-bar{height:100%;border-radius:10px;background:linear-gradient(90deg,var(--mint),var(--mint-dk));transition:width .5s ease;}
+
+/* fun candy divider */
+.candy-div{
+  text-align:center;letter-spacing:6px;font-size:16px;
+  margin:18px 0 14px;opacity:.45;
+}
+
+/* muffin row */
+.muffin-row{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin:8px 0;}
+.muffin-em{font-size:28px;display:inline-block;}
+
+/* answer line */
+.ans-line{
+  display:flex;align-items:center;gap:10px;
+  flex-wrap:wrap;margin:10px 0;
+}
+.ans-line label{font-weight:700;font-size:15px;}
+.ans-line .unit-lbl{font-size:14px;font-weight:700;color:var(--choc-lt);}
+
+/* highlight box used for worked examples */
+.worked{
+  background:#FFF8E1;border-left:5px solid var(--yellow);
+  border-radius:10px;padding:14px;margin:12px 0;
+  font-size:14px;line-height:1.7;
+}
+
+/* tabs for section intro */
+.info-tab{
+  display:inline-block;background:var(--pink);color:#fff;
+  border-radius:8px 8px 0 0;padding:5px 14px;
+  font-family:'Fredoka One',cursive;font-size:14px;
+  margin-bottom:-2px;
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ SIDEBAR ═══ -->
+<nav id="sidebar">
+  <div class="sb-head">
+    <span class="sb-icon">🧁</span>
+    <div class="sb-unit">Cambridge Maths · Unit 13.1</div>
+    <div class="sb-title">Mass</div>
+    <div class="prog-bar-wrap" style="margin-top:12px;">
+      <div class="prog-bar" id="prog-bar" style="width:0%"></div>
+    </div>
+  </div>
+  <ul class="nav-list" id="nav-list"></ul>
+</nav>
+
+<!-- ═══ MAIN ═══ -->
+<main id="main">
+
+<!-- ────────────────────────────────────────────────────
+     SECTION 0 · WELCOME
+──────────────────────────────────────────────────── -->
+<section class="sec" id="s0">
+  <div class="hero-band">
+    <div>
+      <p style="font-size:12px;opacity:.8;letter-spacing:2px;text-transform:uppercase;">Cambridge Primary Mathematics · Grade 3</p>
+      <div class="hero-text" style="margin-top:4px;">
+        <h2>Unit 13.1 · Mass 🍰</h2>
+        <p>Welcome! Today we will learn all about <strong>mass</strong> — how heavy things are. Get ready for muffins, peaches, sweets and scales! ⚖️</p>
+      </div>
+    </div>
+    <div class="hero-emoji">🎂</div>
+  </div>
+
+  <div class="card card-mint">
+    <h3>🎯 Learning Goals</h3>
+    <p>By the end of this lesson you will be able to:</p>
+    <div class="obj-tags">
+      <span class="obj-tag ot-pink">⚖️ Estimate mass</span>
+      <span class="obj-tag ot-mint">📏 Measure mass</span>
+      <span class="obj-tag ot-orange">🔢 Use g and kg</span>
+      <span class="obj-tag ot-purple">½ Use fractions with mass</span>
+      <span class="obj-tag ot-pink">🍬 Compare masses</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>📖 What we will do today</h3>
+    <div class="step">
+      <div class="step-n">1</div>
+      <div class="step-body"><p><strong>What is mass?</strong> — Learn what mass means and what tools we use.</p></div>
+    </div>
+    <div class="step" style="border-left-color:var(--orange);">
+      <div class="step-n" style="background:var(--orange)">2</div>
+      <div class="step-body"><p><strong>Fruity Puzzle</strong> — Peaches and pears on a balance scale.</p></div>
+    </div>
+    <div class="step" style="border-left-color:var(--mint-dk);">
+      <div class="step-n" style="background:var(--mint-dk)">3</div>
+      <div class="step-body"><p><strong>Muffin Scales</strong> — Muffins and chocolate on a balance.</p></div>
+    </div>
+    <div class="step" style="border-left-color:var(--purple-dk);">
+      <div class="step-n" style="background:var(--purple-dk)">4</div>
+      <div class="step-body"><p><strong>Grams &amp; Kilograms</strong> — Understand g and kg.</p></div>
+    </div>
+    <div class="step" style="border-left-color:var(--blue-dk);">
+      <div class="step-n" style="background:var(--blue-dk)">5</div>
+      <div class="step-body"><p><strong>Compare!</strong> — Which is heavier? Greater than or less than?</p></div>
+    </div>
+    <div class="step" style="border-left-color:var(--yellow);">
+      <div class="step-n" style="background:var(--yellow);color:var(--choc)">6</div>
+      <div class="step-body"><p><strong>Mass Quiz</strong> — Test yourself with a fun quiz!</p></div>
+    </div>
+  </div>
+
+  <div class="btn-row">
+    <button class="btn btn-pink" onclick="navigate(1)">Let's Start! 🍭</button>
+  </div>
+</section>
+
+<!-- ────────────────────────────────────────────────────
+     SECTION 1 · WHAT IS MASS?
+──────────────────────────────────────────────────── -->
+<section class="sec" id="s1">
+  <div class="sec-title">⚖️ What is Mass?</div>
+  <div class="sec-sub">Learn about mass and how we measure it</div>
+
+  <div class="card card-pink">
+    <h3>🍬 Mass = How heavy something is</h3>
+    <p>Mass tells us <span class="hl">how much matter</span> is in an object.<br>
+    We measure mass in <span class="hl">grams (g)</span> and <span class="hl">kilograms (kg)</span>.</p>
+    <div class="candy-div">🍭 · 🧁 · 🍬 · 🎂 · 🍩</div>
+    <p>A feather is very <strong>light</strong> — it has a <span class="hl">small mass</span>.<br>
+    A big cake is <strong>heavy</strong> — it has a <span class="hl">large mass</span>.</p>
+  </div>
+
+  <h3>🍰 Everyday examples</h3>
+  <div class="mass-grid">
+    <div class="mass-card">
+      <span class="mc-em">🍬</span>
+      <div class="mc-name">One Sweet</div>
+      <div class="mc-mass">~5 g</div>
+    </div>
+    <div class="mass-card">
+      <span class="mc-em">🧁</span>
+      <div class="mc-name">Muffin</div>
+      <div class="mc-mass">~50 g</div>
+    </div>
+    <div class="mass-card">
+      <span class="mc-em">🍫</span>
+      <div class="mc-name">Choc Bar</div>
+      <div class="mc-mass">100 g</div>
+    </div>
+    <div class="mass-card" style="border-color:var(--mint);">
+      <span class="mc-em">🍎</span>
+      <div class="mc-name">Apple</div>
+      <div class="mc-mass">~150 g</div>
+    </div>
+    <div class="mass-card" style="border-color:var(--mint);">
+      <span class="mc-em">🎂</span>
+      <div class="mc-name">Birthday Cake</div>
+      <div class="mc-mass">~1 kg</div>
+    </div>
+    <div class="mass-card" style="border-color:var(--orange);border-width:2px;">
+      <span class="mc-em">🧺</span>
+      <div class="mc-name">Bag of Sugar</div>
+      <div class="mc-mass">1 kg</div>
+    </div>
+  </div>
+
+  <div class="candy-div">✨ · ✨ · ✨</div>
+
+  <h3>📐 How do we measure mass?</h3>
+  <div class="inst-row">
+    <div class="inst-card">
+      <span class="ie">⚖️</span>
+      <div class="in">Balance Scales</div>
+    </div>
+    <div class="inst-card">
+      <span class="ie">🏋️</span>
+      <div class="in">Kitchen Scales</div>
+    </div>
+    <div class="inst-card">
+      <span class="ie">📟</span>
+      <div class="in">Digital Scales</div>
+    </div>
+    <div class="inst-card">
+      <span class="ie">🔩</span>
+      <div class="in">Spring Balance</div>
+    </div>
+  </div>
+
+  <div class="card card-mint">
+    <h3>💡 Remember!</h3>
+    <div class="step"><div class="step-n" style="background:var(--mint-dk)">g</div>
+      <div class="step-body"><p><strong>Grams (g)</strong> — for light objects. Example: sweets, muffins, pencils.</p></div>
+    </div>
+    <div class="step" style="border-color:var(--orange);">
+      <div class="step-n" style="background:var(--orange)">kg</div>
+      <div class="step-body"><p><strong>Kilograms (kg)</strong> — for heavier objects. Example: bags, people, watermelons.</p></div>
+    </div>
+    <div class="step" style="border-color:var(--purple-dk);">
+      <div class="step-n" style="background:var(--purple-dk)">!</div>
+      <div class="step-body"><p><strong>1 kg = 1 000 g</strong> — one kilogram equals one thousand grams!</p></div>
+    </div>
+  </div>
+
+  <!-- Quick Check -->
+  <div class="card card-yellow">
+    <h3>🎯 Quick Check</h3>
+    <p class="big">Would you measure a muffin in <span class="hl">g</span> or <span class="hl-orange">kg</span>?</p>
+    <div class="btn-row" style="margin-top:16px;">
+      <button class="btn btn-pink" id="qc1-g" onclick="qCheck('g')">grams (g)</button>
+      <button class="btn btn-orange" id="qc1-kg" onclick="qCheck('kg')">kilograms (kg)</button>
+    </div>
+    <div id="qc1-fb" style="margin-top:12px;font-size:15px;font-weight:700;min-height:22px;"></div>
+  </div>
+
+  <div class="btn-row">
+    <button class="btn btn-grey btn-sm" onclick="navigate(0)">← Back</button>
+    <button class="btn btn-pink" onclick="navigate(2)">Next: Fruity Puzzle 🍑</button>
+  </div>
+</section>
+
+<!-- ────────────────────────────────────────────────────
+     SECTION 2 · PEACHES & PEARS (Exercise 13.1 Q1)
+──────────────────────────────────────────────────── -->
+<section class="sec" id="s2">
+  <div class="sec-title">🍑 Fruity Puzzle</div>
+  <div class="sec-sub">Exercise 13.1 · Question 1</div>
+
+  <!-- Problem card -->
+  <div class="card card-orange">
+    <h3>🛒 Read the problem</h3>
+    <div class="step"><div class="step-n" style="background:var(--orange)">📖</div>
+      <div class="step-body">
+        <p>Suzie buys <span class="hl-orange">two peaches</span> and <span class="hl-orange">four pears</span>.</p>
+        <p style="margin-top:6px;">One peach weighs <strong>80 grams</strong>.</p>
+        <p style="margin-top:6px;"><strong>Four pears</strong> weigh the <em>same</em> as <strong>two peaches</strong>.</p>
+        <p style="margin-top:10px;font-size:16px;"><strong>How much does <span class="hl">one pear</span> weigh?</strong></p>
+      </div>
+    </div>
+    <div style="text-align:center;font-size:48px;margin:8px 0;">🍑 🍑 &nbsp; 🍐 🍐 🍐 🍐</div>
+  </div>
+
+  <!-- Estimate -->
+  <div class="est-box">
+    <span style="font-size:22px;">🤔</span>
+    <div>
+      <label>My estimate for one pear:</label>
+      <div style="display:flex;align-items:center;gap:8px;margin-top:6px;flex-wrap:wrap;">
+        <input type="number" id="est-pear" placeholder="?" min="1" max="500">
+        <span class="unit-lbl">grams</span>
+        <button class="btn btn-yellow btn-sm" onclick="saveEstimate()">Save Estimate 💾</button>
+      </div>
+      <div class="est-hint" id="est-saved"></div>
+    </div>
+  </div>
+
+  <!-- Step by step -->
+  <div class="card">
+    <h3>🧠 Work it out — step by step</h3>
+
+    <div class="step">
+      <div class="step-n">1</div>
+      <div class="step-body">
+        <p>Two peaches weigh:</p>
+        <div class="eq-box" style="margin:8px 0;">
+          <div class="eq-line">2 × 80 g = <span class="eq-pink" id="two-peach-ans">?</span></div>
+        </div>
+        <div class="ans-line">
+          <input type="number" id="inp-2peach" placeholder="?" onkeydown="if(event.key==='Enter')check2Peach()">
+          <span class="unit-lbl">g</span>
+          <button class="btn btn-pink btn-sm" onclick="check2Peach()">Check ✓</button>
+        </div>
+        <div id="fb-2peach" style="font-size:13px;font-weight:700;min-height:18px;margin-top:4px;"></div>
+      </div>
+    </div>
+
+    <div class="step" id="step2" style="opacity:.35;pointer-events:none;border-left-color:var(--orange);">
+      <div class="step-n" style="background:var(--orange)">2</div>
+      <div class="step-body">
+        <p>Four pears = two peaches, so four pears weigh:</p>
+        <div id="four-pear-eq" class="eq-box" style="margin:8px 0;">
+          <div class="eq-line">4 pears = <span class="eq-orange">? g</span></div>
+        </div>
+        <p style="font-size:13px;color:var(--choc-lt);">(This equals the same as two peaches!)</p>
+      </div>
+    </div>
+
+    <div class="step" id="step3" style="opacity:.35;pointer-events:none;border-left-color:var(--mint-dk);">
+      <div class="step-n" style="background:var(--mint-dk)">3</div>
+      <div class="step-body">
+        <p>So one pear weighs:</p>
+        <div class="eq-box" style="margin:8px 0;">
+          <div class="eq-line" id="one-pear-eq">? ÷ 4 = <span class="eq-green">?</span></div>
+        </div>
+        <div class="ans-line">
+          <input type="number" id="inp-1pear" placeholder="?" onkeydown="if(event.key==='Enter')check1Pear()">
+          <span class="unit-lbl">g</span>
+          <button class="btn btn-mint btn-sm" onclick="check1Pear()">Check ✓</button>
+        </div>
+        <div id="fb-1pear" style="font-size:13px;font-weight:700;min-height:18px;margin-top:4px;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Answer reveal -->
+  <div class="reveal" id="pear-reveal">
+    <h4>✅ Great work! Here is the full solution:</h4>
+    <div class="worked">
+      🍑 One peach = 80 g<br>
+      🍑🍑 Two peaches = 2 × 80 = <strong>160 g</strong><br>
+      🍐🍐🍐🍐 Four pears = 160 g (same as two peaches)<br>
+      🍐 One pear = 160 ÷ 4 = <strong>40 g</strong>
+    </div>
+    <p style="margin-top:8px;">How close was your estimate? <span id="est-compare" class="hl"></span></p>
+    <div class="btn-row">
+      <button class="btn btn-pink btn-sm" onclick="resetQ1()">Try Again 🔄</button>
+    </div>
+  </div>
+
+  <div class="btn-row">
+    <button class="btn btn-grey btn-sm" onclick="navigate(1)">← Back</button>
+    <button class="btn btn-pink" onclick="navigate(3)">Next: Muffin Scales 🧁</button>
+  </div>
+</section>
+
+<!-- ────────────────────────────────────────────────────
+     SECTION 3 · MUFFINS & CHOCOLATE (Exercise 13.1 Q2)
+──────────────────────────────────────────────────── -->
+<section class="sec" id="s3">
+  <div class="sec-title">🧁 Muffin Scales</div>
+  <div class="sec-sub">Exercise 13.1 · Question 2</div>
+
+  <div class="card card-pink">
+    <h3>🍫 Read the problem</h3>
+    <p>The chocolate bar has a mass of <span class="hl">100 g</span>.</p>
+    <p style="margin-top:6px;">The scales are <strong>balanced</strong> — both sides weigh the same!</p>
+    <p style="margin-top:6px;">Left side: <span class="hl">4 muffins</span> &nbsp;|&nbsp; Right side: <span class="hl">2 muffins</span> + chocolate bar</p>
+  </div>
+
+  <!-- Animated balance scale SVG -->
+  <div class="scale-wrap">
+    <svg id="scale-svg" viewBox="0 0 420 220" width="420" height="220" xmlns="http://www.w3.org/2000/svg">
+      <!-- Stand -->
+      <rect x="200" y="90" width="20" height="110" rx="5" fill="#BCAAA4"/>
+      <rect x="160" y="195" width="100" height="16" rx="8" fill="#A1887F"/>
+      <!-- Beam -->
+      <rect x="60" y="88" width="300" height="10" rx="5" fill="#8D6E63" id="beam"/>
+      <!-- Pivot -->
+      <circle cx="210" cy="88" r="10" fill="#5C3317"/>
+      <!-- Strings -->
+      <line x1="100" y1="92" x2="100" y2="120" stroke="#8D6E63" stroke-width="3"/>
+      <line x1="320" y1="92" x2="320" y2="120" stroke="#8D6E63" stroke-width="3"/>
+      <!-- Left pan -->
+      <ellipse cx="100" cy="126" rx="55" ry="10" fill="#FFCCBC"/>
+      <ellipse cx="100" cy="122" rx="55" ry="10" fill="#FFAB91"/>
+      <!-- Right pan -->
+      <ellipse cx="320" cy="126" rx="55" ry="10" fill="#FFCCBC"/>
+      <ellipse cx="320" cy="122" rx="55" ry="10" fill="#FFAB91"/>
+      <!-- Left: 4 muffins -->
+      <text x="54" y="115" font-size="20">🧁🧁</text>
+      <text x="54" y="138" font-size="20">🧁🧁</text>
+      <!-- Right: 2 muffins + chocolate -->
+      <text x="277" y="115" font-size="20">🧁🧁</text>
+      <text x="285" y="138" font-size="18">🍫</text>
+      <!-- balanced label -->
+      <text x="210" y="75" text-anchor="middle" font-size="13" fill="#FF6B9D" font-family="Fredoka One,cursive">BALANCED ⚖️</text>
+    </svg>
+  </div>
+
+  <!-- Part a -->
+  <div class="card card-mint">
+    <h3>a) What is the mass of <span class="hl">one muffin</span>? 🧁</h3>
+    <p>Because the scales are balanced:</p>
+    <div class="eq-box">
+      <div class="eq-line">4 muffins = 2 muffins + 100 g</div>
+      <div class="eq-line" style="font-size:14px;color:var(--choc-lt);">(subtract 2 muffins from both sides)</div>
+      <div class="eq-line">2 muffins = <span class="eq-pink" id="muf2-ans">?</span></div>
+    </div>
+
+    <div class="step">
+      <div class="step-n">1</div>
+      <div class="step-body">
+        <p>If 2 muffins = 100 g, then 1 muffin = ?</p>
+        <div class="ans-line" style="margin-top:8px;">
+          <input type="number" id="inp-muf1" placeholder="?" onkeydown="if(event.key==='Enter')checkMuf1()">
+          <span class="unit-lbl">g</span>
+          <button class="btn btn-mint btn-sm" onclick="checkMuf1()">Check ✓</button>
+        </div>
+        <div id="fb-muf1" style="font-size:13px;font-weight:700;min-height:18px;margin-top:4px;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Part b -->
+  <div class="card card-choc" id="muf-partb" style="opacity:.35;pointer-events:none;">
+    <h3>b) What is the mass of each side? ⚖️</h3>
+    <p>We know 1 muffin = 50 g.</p>
+    <p style="margin-top:6px;">The left side has <strong>4 muffins</strong>. What is the total mass of the left side?</p>
+    <div class="ans-line" style="margin-top:12px;">
+      <label>4 ×</label>
+      <input type="number" id="inp-side-muf" placeholder="?" style="width:80px;" onkeydown="if(event.key==='Enter')checkSide()">
+      <label>g =</label>
+      <input type="number" id="inp-side-total" placeholder="?" onkeydown="if(event.key==='Enter')checkSide()">
+      <span class="unit-lbl">g</span>
+      <button class="btn btn-pink btn-sm" onclick="checkSide()">Check ✓</button>
+    </div>
+    <div id="fb-side" style="font-size:13px;font-weight:700;min-height:18px;margin-top:4px;"></div>
+  </div>
+
+  <!-- Muffin Reveal -->
+  <div class="reveal" id="muf-reveal">
+    <h4>✅ Excellent! Full solution:</h4>
+    <div class="worked">
+      ⚖️ Both sides balanced: 4 muffins = 2 muffins + 100 g<br>
+      → 4 − 2 = 2 muffins = 100 g<br>
+      🧁 <strong>1 muffin = 100 ÷ 2 = 50 g</strong><br><br>
+      Left side: 4 × 50 g = <strong>200 g</strong><br>
+      Right side: 2 × 50 g + 100 g = 100 + 100 = <strong>200 g</strong> ✓
+    </div>
+    <div class="muffin-row" style="justify-content:center;margin-top:10px;">
+      <span class="muffin-em">🧁</span><span class="muffin-em">🧁</span>
+      <span class="muffin-em">🧁</span><span class="muffin-em">🧁</span>
+      <span style="font-family:'Fredoka One',cursive;font-size:20px;color:var(--mint-dk);margin:0 8px;">= 200 g</span>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-pink btn-sm" onclick="resetQ2()">Try Again 🔄</button>
+    </div>
+  </div>
+
+  <div class="btn-row">
+    <button class="btn btn-grey btn-sm" onclick="navigate(2)">← Back</button>
+    <button class="btn btn-pink" onclick="navigate(4)">Next: g and kg 📏</button>
+  </div>
+</section>
+
+<!-- ────────────────────────────────────────────────────
+     SECTION 4 · GRAMS & KILOGRAMS
+──────────────────────────────────────────────────── -->
+<section class="sec" id="s4">
+  <div class="sec-title">📏 Grams &amp; Kilograms</div>
+  <div class="sec-sub">Understanding units of mass</div>
+
+  <div class="card card-orange">
+    <h3>🔑 The Key Fact</h3>
+    <div style="text-align:center;margin:14px 0;">
+      <div style="font-family:'Fredoka One',cursive;font-size:36px;color:var(--orange);">
+        1 kg = 1 000 g
+      </div>
+      <div style="font-size:13px;color:var(--choc-lt);margin-top:6px;font-weight:700;">
+        one kilogram = one thousand grams
+      </div>
+    </div>
+    <div class="unit-cards">
+      <div class="unit-card">
+        <div class="uv">1 kg</div>
+        <div class="ul">= 1 000 g</div>
+      </div>
+      <div class="unit-card">
+        <div class="uv">½ kg</div>
+        <div class="ul">= 500 g</div>
+      </div>
+      <div class="unit-card">
+        <div class="uv">¼ kg</div>
+        <div class="ul">= 250 g</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fraction of kg -->
+  <div class="card card-purple">
+    <h3>½ Fractions of a Kilogram 🎂</h3>
+    <p>We can use fractions when we describe mass!</p>
+    <div class="frac-row" style="margin-top:14px;">
+      <div class="frac-card">
+        <div class="frac-big">½ kg</div>
+        <div class="frac-of">half a kilogram</div>
+        <div class="frac-ans">= 500 g</div>
+      </div>
+      <div class="frac-card">
+        <div class="frac-big">¼ kg</div>
+        <div class="frac-of">quarter kilogram</div>
+        <div class="frac-ans">= 250 g</div>
+      </div>
+      <div class="frac-card">
+        <div class="frac-big">¾ kg</div>
+        <div class="frac-of">three quarters kg</div>
+        <div class="frac-ans">= 750 g</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Converter -->
+  <div class="card">
+    <h3>🎮 Converter — drag the slider!</h3>
+    <p>Move the slider to convert kilograms to grams.</p>
+    <div class="conv-box">
+      <div style="font-family:'Fredoka One',cursive;font-size:16px;color:var(--choc-lt);">Move the slider 👇</div>
+      <input type="range" id="kg-slider" min="0" max="5" step="0.25" value="1" oninput="updateConverter()">
+      <div class="conv-val" id="conv-kg">1 kg</div>
+      <div style="font-family:'Fredoka One',cursive;font-size:22px;color:var(--choc);margin-top:6px;">=</div>
+      <div class="conv-val" id="conv-g">1 000 g</div>
+    </div>
+  </div>
+
+  <!-- Unit matching activity -->
+  <div class="card card-mint">
+    <h3>🎯 Choose the best unit</h3>
+    <p>Tap <strong>g</strong> or <strong>kg</strong> for each item!</p>
+    <div id="unit-match-wrap" style="margin-top:14px;"></div>
+    <div class="btn-row">
+      <button class="btn btn-grey btn-sm" onclick="resetUnitMatch()">Reset 🔄</button>
+    </div>
+  </div>
+
+  <!-- Fraction fill-in -->
+  <div class="card card-yellow">
+    <h3>✏️ Fill in the gaps</h3>
+    <p>Use what you know about <strong>fractions</strong> of a kilogram.</p>
+    <div id="frac-qs" style="margin-top:14px;"></div>
+    <div class="btn-row">
+      <button class="btn btn-yellow btn-sm" onclick="checkFracQs()">Check All ✓</button>
+      <button class="btn btn-grey btn-sm" onclick="resetFracQs()">Reset 🔄</button>
+    </div>
+  </div>
+
+  <div class="btn-row">
+    <button class="btn btn-grey btn-sm" onclick="navigate(3)">← Back</button>
+    <button class="btn btn-pink" onclick="navigate(5)">Next: Compare! 🔢</button>
+  </div>
+</section>
+
+<!-- ────────────────────────────────────────────────────
+     SECTION 5 · COMPARE MASSES
+──────────────────────────────────────────────────── -->
+<section class="sec" id="s5">
+  <div class="sec-title">🔢 Compare the Mass!</div>
+  <div class="sec-sub">Greater than &gt; · Less than &lt; · Equal to =</div>
+
+  <div class="card card-pink">
+    <h3>🍬 Symbols to know</h3>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:12px;">
+      <div style="flex:1;min-width:100px;background:#fff;border-radius:12px;padding:14px;text-align:center;border:2px solid var(--pink-lt);">
+        <div style="font-family:'Fredoka One',cursive;font-size:34px;color:var(--pink);">&gt;</div>
+        <div style="font-weight:700;font-size:13px;margin-top:4px;">Greater Than</div>
+        <div style="font-size:12px;color:var(--choc-lt);">left is heavier</div>
+      </div>
+      <div style="flex:1;min-width:100px;background:#fff;border-radius:12px;padding:14px;text-align:center;border:2px solid var(--blue-dk);">
+        <div style="font-family:'Fredoka One',cursive;font-size:34px;color:var(--blue-dk);">&lt;</div>
+        <div style="font-weight:700;font-size:13px;margin-top:4px;">Less Than</div>
+        <div style="font-size:12px;color:var(--choc-lt);">left is lighter</div>
+      </div>
+      <div style="flex:1;min-width:100px;background:#fff;border-radius:12px;padding:14px;text-align:center;border:2px solid var(--mint-dk);">
+        <div style="font-family:'Fredoka One',cursive;font-size:34px;color:var(--mint-dk);">=</div>
+        <div style="font-weight:700;font-size:13px;margin-top:4px;">Equal To</div>
+        <div style="font-size:12px;color:var(--choc-lt);">same mass</div>
+      </div>
+    </div>
+    <div class="worked" style="margin-top:14px;">
+      💡 <strong>Trick:</strong> The wide mouth of &gt; and &lt; always faces the <em>bigger</em> number.<br>
+      Think of it as a hungry crocodile 🐊 that always eats the bigger number!
+    </div>
+  </div>
+
+  <!-- Compare Rounds -->
+  <div id="cmp-rounds-wrap"></div>
+
+  <div class="btn-row">
+    <button class="btn btn-grey btn-sm" onclick="navigate(4)">← Back</button>
+    <button class="btn btn-pink" onclick="navigate(6)">Next: Quiz! 🏆</button>
+  </div>
+</section>
+
+<!-- ────────────────────────────────────────────────────
+     SECTION 6 · QUIZ
+──────────────────────────────────────────────────── -->
+<section class="sec" id="s6">
+  <div class="sec-title">🏆 Mass Quiz!</div>
+  <div class="sec-sub">Test everything you have learned today</div>
+
+  <div class="card card-pink" style="text-align:center;padding:16px;">
+    <span style="font-size:36px;">🍬🧁🍑🍫🎂</span>
+    <p style="font-weight:700;margin-top:8px;">Answer all questions and see your score!</p>
+  </div>
+
+  <div id="quiz-wrap"></div>
+
+  <div class="btn-row" id="quiz-submit-row">
+    <button class="btn btn-pink" onclick="submitQuiz()">Submit Quiz 🏆</button>
+    <button class="btn btn-grey btn-sm" onclick="resetQuiz()">Reset 🔄</button>
+  </div>
+
+  <div class="score-box" id="score-box">
+    <div class="score-stars" id="score-stars"></div>
+    <div class="score-big" id="score-num"></div>
+    <div class="score-lbl" id="score-lbl"></div>
+    <div style="margin-top:16px;font-size:16px;" id="score-msg"></div>
+    <div class="btn-row" style="justify-content:center;margin-top:18px;">
+      <button class="btn btn-yellow" onclick="resetQuiz()">Try Again 🔄</button>
+      <button class="btn btn-mint" onclick="navigate(0)">Back to Start 🏠</button>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- TOAST CONTAINER -->
+<div id="tc"></div>
+
+<script>
+(function(){
+'use strict';
+
+/* ═══════════════════════════════════════
+   STATE
+═══════════════════════════════════════ */
+const state = {
+  current: 0,
+  visited: new Set(),
+  done: new Set(),
+  q1: { estimateSaved: false, step2Unlocked: false, step3Unlocked: false, pear2Mass: 0 },
+  q2: { step1Done: false },
+  unitMatch: {},
+  fracQs: {},
+  compare: {},
+  quiz: { answers: {}, submitted: false }
+};
+
+/* ═══════════════════════════════════════
+   NAV CONFIG
+═══════════════════════════════════════ */
+const sections = [
+  { icon:'🎉', label:'Welcome',        id:'s0' },
+  { icon:'⚖️', label:'What is Mass?',  id:'s1' },
+  { icon:'🍑', label:'Fruity Puzzle',  id:'s2' },
+  { icon:'🧁', label:'Muffin Scales',  id:'s3' },
+  { icon:'📏', label:'g and kg',       id:'s4' },
+  { icon:'🔢', label:'Compare!',       id:'s5' },
+  { icon:'🏆', label:'Quiz',           id:'s6' },
+];
+
+/* ═══════════════════════════════════════
+   UNIT MATCH DATA
+═══════════════════════════════════════ */
+const unitItems = [
+  { em:'🍬', name:'One sweet',    ans:'g'  },
+  { em:'🧁', name:'Muffin',       ans:'g'  },
+  { em:'🎂', name:'Birthday cake',ans:'kg' },
+  { em:'🍫', name:'Choc bar',     ans:'g'  },
+  { em:'🍉', name:'Watermelon',   ans:'kg' },
+  { em:'🐇', name:'Baby rabbit',  ans:'kg' },
+  { em:'✏️', name:'Pencil',       ans:'g'  },
+  { em:'👜', name:'School bag',   ans:'kg' },
+];
+
+/* ═══════════════════════════════════════
+   FRACTION Qs
+═══════════════════════════════════════ */
+const fracQData = [
+  { q:'½ kg = _____ g',  ans:500  },
+  { q:'¼ kg = _____ g',  ans:250  },
+  { q:'¾ kg = _____ g',  ans:750  },
+  { q:'1 kg = _____ g',  ans:1000 },
+  { q:'2 kg = _____ g',  ans:2000 },
+  { q:'1½ kg = _____ g', ans:1500 },
+];
+
+/* ═══════════════════════════════════════
+   COMPARE DATA
+═══════════════════════════════════════ */
+const cmpData = [
+  { left:{em:'🍬',name:'Bag of Sweets',mass:250,unit:'g'},  right:{em:'🧁',name:'Big Muffin',  mass:150,unit:'g'}, ans:'>' },
+  { left:{em:'🍑',name:'One Peach',    mass:80, unit:'g'},  right:{em:'🍐',name:'One Pear',    mass:40, unit:'g'}, ans:'>' },
+  { left:{em:'🎂',name:'Mini Cake',    mass:500,unit:'g'},  right:{em:'🎂',name:'Mini Cake',   mass:500,unit:'g'}, ans:'=' },
+  { left:{em:'🍫',name:'Choc Bar',     mass:100,unit:'g'},  right:{em:'🍰',name:'Slice of Cake',mass:200,unit:'g'},ans:'<' },
+  { left:{em:'🧸',name:'Teddy Bear',   mass:1,  unit:'kg'}, right:{em:'📚',name:'3 Books',     mass:900,unit:'g'}, ans:'>' },
+  { left:{em:'🍩',name:'3 Doughnuts',  mass:300,unit:'g'},  right:{em:'½ kg bag',name:'½ kg bag',mass:500,unit:'g'},ans:'<'},
+  { left:{em:'🍐',name:'4 Pears',      mass:160,unit:'g'},  right:{em:'🍑',name:'2 Peaches',   mass:160,unit:'g'}, ans:'=' },
+  { left:{em:'🎁',name:'Gift Box',     mass:2,  unit:'kg'}, right:{em:'📦',name:'Big Box',     mass:1500,unit:'g'},ans:'>' },
+];
+
+/* ═══════════════════════════════════════
+   QUIZ DATA
+═══════════════════════════════════════ */
+const quizData = [
+  { q:'One peach weighs 80 g. How much do TWO peaches weigh?',
+    opts:['80 g','120 g','160 g','200 g'], ans:2 },
+  { q:'Four pears weigh the same as two peaches (160 g). How much does ONE pear weigh?',
+    opts:['20 g','40 g','60 g','80 g'], ans:1 },
+  { q:'One muffin weighs 50 g. What is the mass of FOUR muffins?',
+    opts:['100 g','150 g','200 g','250 g'], ans:2 },
+  { q:'1 kg = _____ g',
+    opts:['100 g','500 g','750 g','1 000 g'], ans:3 },
+  { q:'½ kg = _____ g',
+    opts:['250 g','500 g','750 g','1 000 g'], ans:1 },
+  { q:'A birthday cake weighs 1 kg. A muffin weighs 50 g. The cake is _____ than the muffin.',
+    opts:['lighter','the same','heavier','smaller'], ans:2 },
+  { q:'Which is the correct symbol? 250 g ___ ½ kg',
+    opts:['>', '<', '=', '+'], ans:1 },
+  { q:'A bag of sweets is 200 g. A chocolate bar is 100 g. Together they weigh:',
+    opts:['200 g','250 g','300 g','400 g'], ans:2 },
+  { q:'¼ kg = _____ g',
+    opts:['25 g','100 g','250 g','400 g'], ans:2 },
+  { q:'Which unit is best for measuring the mass of a watermelon?',
+    opts:['mm','g','kg','km'], ans:2 },
+];
+
+/* ═══════════════════════════════════════
+   TOAST
+═══════════════════════════════════════ */
+function toast(msg, type='tinfo'){
+  const tc = document.getElementById('tc');
+  const el = document.createElement('div');
+  el.className = `toast ${type}`;
+  el.textContent = msg;
+  tc.appendChild(el);
+  setTimeout(() => el.remove(), 2800);
+}
+
+/* ═══════════════════════════════════════
+   SHAKE
+═══════════════════════════════════════ */
+function shake(el){
+  el.classList.remove('shake');
+  void el.offsetWidth;
+  el.classList.add('shake');
+  el.addEventListener('animationend', () => el.classList.remove('shake'), {once:true});
+}
+
+/* ═══════════════════════════════════════
+   NAVIGATE
+═══════════════════════════════════════ */
+window.navigate = function(idx){
+  sections.forEach((s,i) => {
+    const el = document.getElementById(s.id);
+    el.classList.toggle('active', i === idx);
+    const btn = document.getElementById(`nav-${i}`);
+    btn.classList.toggle('active', i === idx);
+  });
+  state.current = idx;
+  state.visited.add(idx);
+  document.getElementById('main').scrollTo({top:0, behavior:'smooth'});
+  updateProgress();
+};
+
+function updateProgress(){
+  const total = sections.length;
+  const pct = Math.round((state.done.size / (total-1)) * 100);
+  document.getElementById('prog-bar').style.width = pct + '%';
+  sections.forEach((_,i) => {
+    const dot = document.getElementById(`dot-${i}`);
+    if(dot) dot.classList.toggle('done', state.done.has(i));
+  });
+}
+
+function markDone(idx){
+  state.done.add(idx);
+  updateProgress();
+}
+
+/* ═══════════════════════════════════════
+   BUILD SIDEBAR
+═══════════════════════════════════════ */
+function buildNav(){
+  const ul = document.getElementById('nav-list');
+  sections.forEach((s,i) => {
+    const li = document.createElement('li');
+    li.className = 'nav-item';
+    li.innerHTML = `
+      <button class="nav-btn${i===0?' active':''}" id="nav-${i}" onclick="navigate(${i})">
+        <span class="nav-icon">${s.icon}</span>
+        <span class="nav-label">${s.label}</span>
+        <span class="pdot" id="dot-${i}"></span>
+      </button>`;
+    ul.appendChild(li);
+  });
+}
+
+/* ═══════════════════════════════════════
+   SECTION 1 QUICK CHECK
+═══════════════════════════════════════ */
+window.qCheck = function(choice){
+  const fb = document.getElementById('qc1-fb');
+  if(choice === 'g'){
+    fb.innerHTML = '✅ <span style="color:var(--mint-dk)">Correct! We use grams (g) for a muffin — it is light!</span>';
+    toast('Correct! 🎉', 'tok');
+    markDone(1);
+  } else {
+    fb.innerHTML = '❌ <span style="color:var(--red)">Try again! A muffin is too light for kilograms.</span>';
+    shake(document.getElementById('qc1-kg'));
+    toast('Try again!', 'terr');
+  }
+};
+
+/* ═══════════════════════════════════════
+   SECTION 2 — PEACHES & PEARS
+═══════════════════════════════════════ */
+window.saveEstimate = function(){
+  const v = parseInt(document.getElementById('est-pear').value);
+  if(!v || v<1){ toast('Enter a number first!','terr'); return; }
+  state.q1.estimateSaved = true;
+  state.q1.estimate = v;
+  document.getElementById('est-saved').textContent = `✅ Estimate saved: ${v} g — Now work it out!`;
+  toast(`Estimate saved: ${v} g 💾`, 'tok');
+};
+
+window.check2Peach = function(){
+  const inp = document.getElementById('inp-2peach');
+  const fb  = document.getElementById('fb-2peach');
+  const v   = parseInt(inp.value);
+  if(v === 160){
+    inp.className = 'correct';
+    fb.innerHTML = '<span style="color:var(--mint-dk)">✅ 2 × 80 = 160 g. Correct!</span>';
+    document.getElementById('two-peach-ans').textContent = '160 g';
+    state.q1.pear2Mass = 160;
+    // unlock step 2
+    const s2 = document.getElementById('step2');
+    s2.style.opacity = '1';
+    s2.style.pointerEvents = 'auto';
+    document.getElementById('four-pear-eq').innerHTML =
+      '<div class="eq-line">4 pears = <span class="eq-orange">160 g</span></div><div class="eq-line" style="font-size:14px;color:var(--choc-lt);">(same as two peaches!)</div>';
+    // unlock step 3
+    const s3 = document.getElementById('step3');
+    s3.style.opacity='1';
+    s3.style.pointerEvents='auto';
+    document.getElementById('one-pear-eq').innerHTML = '160 ÷ 4 = <span class="eq-green">?</span>';
+    toast('Step 1 done! Keep going 🍑', 'tok');
+  } else {
+    inp.className = 'incorrect';
+    fb.innerHTML = '<span style="color:var(--red)">❌ Try again! Think: 2 × 80 = ?</span>';
+    shake(inp);
+    toast('Not quite — try again!', 'terr');
+  }
+};
+
+window.check1Pear = function(){
+  const inp = document.getElementById('inp-1pear');
+  const fb  = document.getElementById('fb-1pear');
+  const v   = parseInt(inp.value);
+  if(v === 40){
+    inp.className='correct';
+    fb.innerHTML='<span style="color:var(--mint-dk)">✅ 160 ÷ 4 = 40 g. One pear = 40 g!</span>';
+    document.getElementById('one-pear-eq').innerHTML='160 ÷ 4 = <span class="eq-green">40 g</span>';
+    const rev = document.getElementById('pear-reveal');
+    rev.classList.add('show');
+    if(state.q1.estimateSaved){
+      const diff = Math.abs(state.q1.estimate - 40);
+      const msg = diff === 0 ? '🎯 Your estimate was EXACTLY right!' :
+                  diff <=10 ? `🌟 Very close! You were only ${diff} g off!` :
+                  diff <=20 ? `👍 Good estimate! You were ${diff} g off.` :
+                  `📝 Your estimate was ${diff} g away — keep practising estimating!`;
+      document.getElementById('est-compare').textContent = msg;
+    }
+    markDone(2);
+    toast('🎉 Well done! One pear = 40 g', 'tok');
+  } else {
+    inp.className='incorrect';
+    fb.innerHTML='<span style="color:var(--red)">❌ Hmm! Try: 160 ÷ 4 = ?</span>';
+    shake(inp);
+    toast('Try again!', 'terr');
+  }
+};
+
+window.resetQ1 = function(){
+  ['inp-2peach','inp-1pear','est-pear'].forEach(id => {
+    const el = document.getElementById(id);
+    if(el){ el.value=''; el.className=''; }
+  });
+  ['fb-2peach','fb-1pear','est-saved'].forEach(id => {
+    document.getElementById(id).textContent='';
+  });
+  document.getElementById('two-peach-ans').textContent='?';
+  document.getElementById('one-pear-eq').innerHTML='? ÷ 4 = <span class="eq-green">?</span>';
+  document.getElementById('four-pear-eq').innerHTML='<div class="eq-line">4 pears = <span class="eq-orange">? g</span></div>';
+  document.getElementById('pear-reveal').classList.remove('show');
+  document.getElementById('est-compare').textContent='';
+  ['step2','step3'].forEach(id => {
+    const el = document.getElementById(id);
+    el.style.opacity='0.35';
+    el.style.pointerEvents='none';
+  });
+  state.q1 = { estimateSaved:false, pear2Mass:0 };
+};
+
+/* ═══════════════════════════════════════
+   SECTION 3 — MUFFINS
+═══════════════════════════════════════ */
+window.checkMuf1 = function(){
+  const inp = document.getElementById('inp-muf1');
+  const fb  = document.getElementById('fb-muf1');
+  const v   = parseInt(inp.value);
+  if(v === 50){
+    inp.className='correct';
+    fb.innerHTML='<span style="color:var(--mint-dk)">✅ 100 ÷ 2 = 50 g. One muffin = 50 g!</span>';
+    document.getElementById('muf2-ans').textContent='100 g';
+    const pb = document.getElementById('muf-partb');
+    pb.style.opacity='1';
+    pb.style.pointerEvents='auto';
+    state.q2.step1Done=true;
+    toast('One muffin = 50 g 🧁', 'tok');
+  } else {
+    inp.className='incorrect';
+    fb.innerHTML='<span style="color:var(--red)">❌ Hmm! If 2 muffins = 100 g, then 1 muffin = 100 ÷ 2 = ?</span>';
+    shake(inp);
+    toast('Try again!', 'terr');
+  }
+};
+
+window.checkSide = function(){
+  const inpM = document.getElementById('inp-side-muf');
+  const inpT = document.getElementById('inp-side-total');
+  const fb   = document.getElementById('fb-side');
+  const vm   = parseInt(inpM.value);
+  const vt   = parseInt(inpT.value);
+  if(vm===50 && vt===200){
+    inpM.className='correct';
+    inpT.className='correct';
+    fb.innerHTML='<span style="color:var(--mint-dk)">✅ 4 × 50 = 200 g. Each side = 200 g!</span>';
+    document.getElementById('muf-reveal').classList.add('show');
+    markDone(3);
+    toast('🎉 Perfect! Each side = 200 g', 'tok');
+  } else if(vm!==50){
+    inpM.className='incorrect';
+    fb.innerHTML='<span style="color:var(--red)">❌ One muffin = 50 g. Try again!</span>';
+    shake(inpM);
+    toast('Check the muffin mass!', 'terr');
+  } else {
+    inpT.className='incorrect';
+    fb.innerHTML='<span style="color:var(--red)">❌ Check your multiplication: 4 × 50 = ?</span>';
+    shake(inpT);
+    toast('Try the multiplication again!', 'terr');
+  }
+};
+
+window.resetQ2 = function(){
+  ['inp-muf1','inp-side-muf','inp-side-total'].forEach(id => {
+    const el=document.getElementById(id);
+    if(el){el.value='';el.className='';}
+  });
+  ['fb-muf1','fb-side'].forEach(id=>{document.getElementById(id).textContent='';});
+  document.getElementById('muf2-ans').textContent='?';
+  document.getElementById('muf-reveal').classList.remove('show');
+  const pb=document.getElementById('muf-partb');
+  pb.style.opacity='0.35';
+  pb.style.pointerEvents='none';
+  state.q2.step1Done=false;
+};
+
+/* ═══════════════════════════════════════
+   SECTION 4 — CONVERTER
+═══════════════════════════════════════ */
+window.updateConverter = function(){
+  const v = parseFloat(document.getElementById('kg-slider').value);
+  const g = v * 1000;
+  document.getElementById('conv-kg').textContent = v + ' kg';
+  document.getElementById('conv-g').textContent  = g.toLocaleString() + ' g';
+};
+
+/* ═══════════════════════════════════════
+   SECTION 4 — UNIT MATCH
+═══════════════════════════════════════ */
+function buildUnitMatch(){
+  const wrap = document.getElementById('unit-match-wrap');
+  wrap.innerHTML = '';
+  unitItems.forEach((item,i) => {
+    const div = document.createElement('div');
+    div.style.cssText = 'display:flex;align-items:center;gap:12px;background:#fff;border-radius:12px;padding:12px 14px;margin-bottom:10px;box-shadow:0 2px 8px rgba(0,0,0,.07);border:2px solid transparent;transition:border .2s;';
+    div.id = `um-row-${i}`;
+    div.innerHTML = `
+      <span style="font-size:28px;">${item.em}</span>
+      <span style="font-weight:700;font-size:14px;flex:1;">${item.name}</span>
+      <button class="btn btn-pink btn-sm" id="um-g-${i}" onclick="pickUnit(${i},'g')" style="width:50px;">g</button>
+      <button class="btn btn-grey btn-sm" id="um-kg-${i}" onclick="pickUnit(${i},'kg')" style="width:56px;">kg</button>
+      <span id="um-fb-${i}" style="font-size:18px;width:22px;"></span>`;
+    wrap.appendChild(div);
+  });
+}
+
+window.pickUnit = function(i, choice){
+  if(state.unitMatch[i] === 'done') return;
+  const item = unitItems[i];
+  const row  = document.getElementById(`um-row-${i}`);
+  const fb   = document.getElementById(`um-fb-${i}`);
+  if(choice === item.ans){
+    row.style.borderColor = 'var(--mint-dk)';
+    row.style.background  = '#F0FFF8';
+    fb.textContent = '✅';
+    state.unitMatch[i] = 'done';
+    toast(`${item.em} → ${item.ans} ✅`, 'tok');
+    // check all done
+    if(Object.keys(state.unitMatch).length === unitItems.length){
+      markDone(4);
+      toast('All matched! Great job! 🎉', 'tok');
+    }
+  } else {
+    fb.textContent = '❌';
+    shake(row);
+    toast('Try the other unit!', 'terr');
+    setTimeout(() => { if(state.unitMatch[i] !== 'done') fb.textContent=''; }, 900);
+  }
+};
+
+window.resetUnitMatch = function(){
+  state.unitMatch = {};
+  buildUnitMatch();
+};
+
+/* ═══════════════════════════════════════
+   SECTION 4 — FRACTION Qs
+═══════════════════════════════════════ */
+function buildFracQs(){
+  const wrap = document.getElementById('frac-qs');
+  wrap.innerHTML = '';
+  fracQData.forEach((q,i) => {
+    const div = document.createElement('div');
+    div.style.cssText='display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap;';
+    div.innerHTML = `
+      <span style="font-weight:700;font-size:15px;flex:1;min-width:160px;">${q.q.replace('_____',
+        `<input type="number" id="fq-${i}" placeholder="?" style="width:90px;font-size:16px;" onkeydown="if(event.key==='Enter')checkFracQs()">`)}</span>
+      <span id="fq-fb-${i}" style="font-size:16px;font-weight:700;"></span>`;
+    wrap.appendChild(div);
+  });
+}
+
+window.checkFracQs = function(){
+  let allOk = true;
+  fracQData.forEach((q,i) => {
+    const inp = document.getElementById(`fq-${i}`);
+    const fb  = document.getElementById(`fq-fb-${i}`);
+    const v   = parseInt(inp.value);
+    if(v === q.ans){
+      inp.className='correct';
+      fb.textContent='✅';
+    } else {
+      inp.className='incorrect';
+      fb.textContent='❌';
+      shake(inp);
+      allOk=false;
+    }
+  });
+  if(allOk){
+    toast('All correct! 🎉', 'tok');
+    markDone(4);
+  } else {
+    toast('Some are wrong — check and try again!', 'terr');
+  }
+};
+
+window.resetFracQs = function(){
+  fracQData.forEach((_,i) => {
+    const inp=document.getElementById(`fq-${i}`);
+    const fb=document.getElementById(`fq-fb-${i}`);
+    if(inp){inp.value='';inp.className='';}
+    if(fb) fb.textContent='';
+  });
+};
+
+/* ═══════════════════════════════════════
+   SECTION 5 — COMPARE
+═══════════════════════════════════════ */
+function buildCompare(){
+  const wrap = document.getElementById('cmp-rounds-wrap');
+  wrap.innerHTML = '';
+  cmpData.forEach((r,i) => {
+    const leftMass  = r.left.unit==='kg' ? r.left.mass*1000 : r.left.mass;
+    const rightMass = r.right.unit==='kg'? r.right.mass*1000: r.right.mass;
+
+    const div = document.createElement('div');
+    div.className = 'card';
+    div.style.marginBottom='14px';
+    div.innerHTML = `
+      <div style="font-family:'Fredoka One',cursive;font-size:13px;color:var(--pink-lt);margin-bottom:8px;">ROUND ${i+1} of ${cmpData.length}</div>
+      <div class="cmp-grid">
+        <div class="cmp-item" id="cmp-l-${i}">
+          <span class="ci-em">${r.left.em}</span>
+          <div class="ci-name">${r.left.name}</div>
+          <div class="ci-mass">${r.left.mass} ${r.left.unit}</div>
+        </div>
+        <div class="cmp-ops">
+          <button class="op-btn" id="cop-gt-${i}" onclick="pickOp(${i},'>')" title="greater than">&gt;</button>
+          <button class="op-btn" id="cop-eq-${i}" onclick="pickOp(${i},'=')" title="equal">=</button>
+          <button class="op-btn" id="cop-lt-${i}" onclick="pickOp(${i},'<')" title="less than">&lt;</button>
+        </div>
+        <div class="cmp-item" id="cmp-r-${i}">
+          <span class="ci-em">${r.right.em}</span>
+          <div class="ci-name">${r.right.name}</div>
+          <div class="ci-mass">${r.right.mass} ${r.right.unit}</div>
+        </div>
+      </div>
+      <div class="cmp-feedback" id="cmp-fb-${i}">👆 Tap &gt; &lt; or = to compare!</div>`;
+    wrap.appendChild(div);
+  });
+}
+
+window.pickOp = function(i, op){
+  if(state.compare[i]==='done') return;
+  const ans = cmpData[i].ans;
+  const fb  = document.getElementById(`cmp-fb-${i}`);
+  const lEl = document.getElementById(`cmp-l-${i}`);
+  const rEl = document.getElementById(`cmp-r-${i}`);
+  ['gt','eq','lt'].forEach(k => {
+    const btn = document.getElementById(`cop-${k}-${i}`);
+    btn.classList.remove('sel','op-ok','op-no');
+  });
+  const keyMap = {'>':'gt','=':'eq','<':'lt'};
+  const btn = document.getElementById(`cop-${keyMap[op]}-${i}`);
+  if(op === ans){
+    btn.classList.add('op-ok');
+    lEl.style.borderColor = ans==='>'?'var(--mint-dk)':ans==='='?'var(--mint-dk)':'transparent';
+    rEl.style.borderColor = ans==='<'?'var(--mint-dk)':ans==='='?'var(--mint-dk)':'transparent';
+    const emojis = {'>':'🏆 Left is heavier!','<':'🏆 Right is heavier!','=':'🎯 They are equal!'};
+    fb.innerHTML = `<span style="color:var(--mint-dk)">✅ Correct! ${emojis[ans]}</span>`;
+    state.compare[i]='done';
+    toast('Correct! 🎉', 'tok');
+    const done = Object.values(state.compare).filter(v=>v==='done').length;
+    if(done === cmpData.length){ markDone(5); toast('All comparisons done! 🌟','tok'); }
+  } else {
+    btn.classList.add('op-no');
+    fb.innerHTML='<span style="color:var(--red)">❌ Try again! Think about which is bigger.</span>';
+    shake(btn);
+    toast('Not quite — try again!', 'terr');
+    setTimeout(()=>{ btn.classList.remove('op-no'); }, 700);
+  }
+};
+
+/* ═══════════════════════════════════════
+   SECTION 6 — QUIZ
+═══════════════════════════════════════ */
+function buildQuiz(){
+  const wrap = document.getElementById('quiz-wrap');
+  wrap.innerHTML='';
+  quizData.forEach((q,i) => {
+    const div = document.createElement('div');
+    div.className='quiz-q';
+    div.innerHTML=`
+      <div class="q-num">Question ${i+1} of ${quizData.length}</div>
+      <div class="q-text">${q.q}</div>
+      <div class="q-opts" id="qopts-${i}">
+        ${q.opts.map((o,j)=>`<button class="q-opt" id="qo-${i}-${j}" onclick="pickQuiz(${i},${j})">${o}</button>`).join('')}
+      </div>
+      <div class="q-result" id="qres-${i}"></div>`;
+    wrap.appendChild(div);
+  });
+}
+
+window.pickQuiz = function(qi, oi){
+  if(state.quiz.submitted) return;
+  state.quiz.answers[qi] = oi;
+  // visual select
+  const oWrap = document.getElementById(`qopts-${qi}`);
+  oWrap.querySelectorAll('.q-opt').forEach(b => b.classList.remove('sel-opt'));
+  document.getElementById(`qo-${qi}-${oi}`).style.borderColor='var(--pink)';
+  document.getElementById(`qo-${qi}-${oi}`).style.background='var(--pink-pale)';
+  // deselect others
+  quizData[qi].opts.forEach((_,j) => {
+    if(j!==oi){
+      const b=document.getElementById(`qo-${qi}-${j}`);
+      b.style.borderColor='';b.style.background='';
+    }
+  });
+};
+
+window.submitQuiz = function(){
+  if(state.quiz.submitted) return;
+  state.quiz.submitted=true;
+  let score=0;
+  quizData.forEach((q,i) => {
+    const chosen = state.quiz.answers[i];
+    const resEl  = document.getElementById(`qres-${i}`);
+    quizData[i].opts.forEach((_,j) => {
+      const btn = document.getElementById(`qo-${i}-${j}`);
+      btn.style.borderColor='';btn.style.background='';
+      if(j===q.ans){ btn.classList.add('qcorrect'); }
+      else if(j===chosen && chosen!==q.ans){ btn.classList.add('qwrong'); }
+    });
+    if(chosen===q.ans){
+      score++;
+      resEl.innerHTML='<span style="color:var(--mint-dk)">✅ Correct!</span>';
+    } else {
+      resEl.innerHTML=`<span style="color:var(--red)">❌ Answer: ${q.opts[q.ans]}</span>`;
+    }
+  });
+  // Score display
+  const total = quizData.length;
+  const pct   = Math.round(score/total*100);
+  const stars  = pct>=90?'🌟🌟🌟':pct>=70?'⭐⭐🌟':pct>=50?'⭐⭐':'⭐';
+  const msgs   = pct>=90?'Amazing! You are a Mass Champion! 🏆':
+                 pct>=70?'Great job! Keep practising! 🎉':
+                 pct>=50?'Good effort! Review the lesson and try again! 💪':
+                 'Keep going! You can do it! 🌈';
+  const sb=document.getElementById('score-box');
+  document.getElementById('score-stars').textContent=stars;
+  document.getElementById('score-num').textContent=`${score} / ${total}`;
+  document.getElementById('score-lbl').textContent=`${pct}%`;
+  document.getElementById('score-msg').textContent=msgs;
+  sb.classList.add('show');
+  document.getElementById('quiz-submit-row').style.display='none';
+  markDone(6);
+  toast(`Score: ${score}/${total} — ${stars}`, 'tok');
+};
+
+window.resetQuiz = function(){
+  state.quiz={answers:{},submitted:false};
+  buildQuiz();
+  document.getElementById('score-box').classList.remove('show');
+  document.getElementById('quiz-submit-row').style.display='flex';
+  document.getElementById('main').scrollTo({top:0,behavior:'smooth'});
+};
+
+/* ═══════════════════════════════════════
+   INIT
+═══════════════════════════════════════ */
+document.addEventListener('DOMContentLoaded', () => {
+  buildNav();
+  buildUnitMatch();
+  buildFracQs();
+  buildCompare();
+  buildQuiz();
+  navigate(0);
+  updateConverter();
+});
+
+})();
+</script>
+</body>
+</html>
